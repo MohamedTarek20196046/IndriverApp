@@ -6,8 +6,8 @@ public class Driver {
     String Username, Password, Email, MobileNumber ,nationalID , License;
     int Balance;
     List<String> FavArea = new ArrayList<String>();
-    PriceNotifier p = new PriceNotifier();
 
+    boolean b=false;
     Driver(String username , String password , String Mobileno , String Email, String nationalid , String license){
         this.Username = username;
         this.Password = password;
@@ -20,10 +20,10 @@ public class Driver {
     {
 
         boolean x =false;
-        for(int i=1;i<m.DriverCount;i++)
+        for(int i=1;i<m.d.getDrivercount();i++)
         {
-            if(m.data.Drivers.get(i).contains(username) && m.data.Drivers.get(i).contains(password)
-                    && m.data.Drivers.get(i).contains("approved"))
+            if(m.d.getDriver(i).contains(username) && m.d.getDriver(i).contains(password)
+                    && m.d.getDriver(i).contains("approved"))
             {
                 x=true;
             }
@@ -31,6 +31,7 @@ public class Driver {
         if(x)
         {
             System.out.println("Driver logged in successfully");
+            b=true;
         }
         else
         {
